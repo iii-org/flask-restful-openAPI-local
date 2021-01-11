@@ -8,7 +8,7 @@ info:
     email: m0724001@gm.nuu.edu.tw
   version: '1.0'
 servers:
-  - url: https://localhost:9080
+  - url: http://flask-restful-openapi-template.master.10.20.0.74.xip.io
 paths:
   /pipeline/web:
     post:
