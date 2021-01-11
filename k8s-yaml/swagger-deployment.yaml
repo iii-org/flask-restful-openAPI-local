@@ -21,8 +21,8 @@ spec:
         ports:
         - containerPort: 8080
       volumeMounts:
-        - mountPath: /tmp
-          name: initswagger
+      - mountPath: /tmp
+        name: initswagger
       # 自動將資料庫所需匯入的表單匯入到資料庫
       initContainers:
       - name: initializing-a-new-instance
@@ -44,8 +44,8 @@ spec:
               name: gitlab-token
               key: git-clone
         volumeMounts:
-          - mountPath: /init-data
-            name: initswagger
+        - mountPath: /init-data
+          name: initswagger
       volumes:
       - name: initswagger
         emptyDir: {}
