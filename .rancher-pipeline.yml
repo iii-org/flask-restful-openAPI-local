@@ -16,7 +16,7 @@ stages:
         PLUGIN_MTU: "1000"
 
   # 部屬 swagger
-  - name: deploy--swagger editor
+  - name: deploy--swagger-editor
     stages:
     - applyYamlConfig:
       path: ./k8s-yaml/swagger-deployment.yaml
