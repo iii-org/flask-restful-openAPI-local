@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-swagger
+  namespace: ${CICD_GIT_REPO_NAME}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-swagger
+  template:
+    metadata:
+      labels:
+        app: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-swagger
+    spec:
+      imagePullSecrets:
+      - name: harbor-local
+      containers:
+      - name: swaggereditor-${CICD_GIT_COMMIT}
+        image: swaggerapi/swagger-editor
+        ports:
+        - containerPort: 8080
+      volumeMounts:
+      - mountPath: /tmp
+        name: initswagger
+      # 自動將資料庫所需匯入的表單匯入到資料庫
+      initContainers:
+      - name: initializing-a-new-instance
+        image: alpine/git
+        command: ['sh', '-c', 'git clone --branch ${git_branch} http://root:${git_token}@${git_host}/root/${git_repo}.git ; ls; mv -v ${git_repo}/restful/* /init-data/; cd /init-data; ls; chmod -R 777 /init-data']
+        env:
+        - name: git_host
+          valueFrom:
+            secretKeyRef:
+              name: gitlab-token
+              key: git-host
+        - name: git_repo
+          value: ${CICD_GIT_REPO_NAME}
+        - name: git_branch
+          value: ${CICD_GIT_BRANCH}
+        - name: git_token
+          valueFrom:
+            secretKeyRef:
+              name: gitlab-token
+              key: git-clone
+        volumeMounts:
+        - mountPath: /init-data
+          name: initswagger
+      volumes:
+      - name: initswagger
+        emptyDir: {}
