@@ -17,11 +17,11 @@ spec:
       - name: harbor-local
       containers:
       - name: swaggereditor-${CICD_GIT_COMMIT}
-        image: swaggerapi/swagger-editor
+        image: swaggerapi/swagger-ui
         ports:
         - containerPort: 8080
         env:
-        - name: SWAGGER_FILE
+        - name: CONFIG_URL
           value: "/tmp/openapi.yaml"
         volumeMounts:
         - mountPath: /tmp
