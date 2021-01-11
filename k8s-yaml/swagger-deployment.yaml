@@ -42,7 +42,7 @@ spec:
           valueFrom:
             secretKeyRef:
               name: gitlab-token
-              key: git-clone
+              key: git-token
         volumeMounts:
         - mountPath: /init-data
           name: initswagger
