@@ -19,11 +19,11 @@ stages:
   - name: deploy--swagger-editor
     stages:
     - applyYamlConfig:
-      path: ./k8s-yaml/swagger-deployment.yaml
+        path: ./k8s-yaml/swagger-deployment.yaml
     - applyYamlConfig:
-      path: ./k8s-yaml/swagger-service.yaml
+        path: ./k8s-yaml/swagger-service.yaml
     - applyYamlConfig:
-      path: ./k8s-yaml/swagger-ingress.yaml
+        path: ./k8s-yaml/swagger-ingress.yaml
 
   # 部屬restful服務(使用者編寫)
   - name: deploy--restful-service
