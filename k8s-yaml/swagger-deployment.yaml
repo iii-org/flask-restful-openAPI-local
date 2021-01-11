@@ -21,7 +21,7 @@ spec:
         ports:
         - containerPort: 8080
         env:
-        - name: CONFIG_URL
+        - name: SWAGGER_JSON
           value: "/tmp/openapi.yaml"
         volumeMounts:
         - mountPath: /tmp
