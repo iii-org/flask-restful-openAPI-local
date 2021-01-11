@@ -13,11 +13,13 @@
 from datetime import datetime
 from flask import Flask, request
 from flask_json import FlaskJSON, JsonError, json_response, as_json
+from flask_cors import CORS
 
 from lib_pipeline.rancher_pipeline import env_rancher_pipeline_generate, web_service_pipeline, db_service_pipeline
 
 app = Flask(__name__)
 FlaskJSON(app)
+CORS(app)
 
 
 # #### 接受使用者要產生web專案的pipeline請求
