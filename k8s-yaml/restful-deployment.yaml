@@ -19,4 +19,4 @@ spec:
       - name: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-${CICD_GIT_COMMIT}
         image: ${CICD_IMAGE}:${CICD_GIT_BRANCH}-${CICD_GIT_COMMIT}
         ports:
-        - containerPort: 5000
+        - containerPort: 80
