@@ -22,7 +22,7 @@ spec:
         - containerPort: 8080
         env:
         - name: SWAGGER_FILE
-          value: "/tmp/openapi.yml"
+          value: "/tmp/openapi.yaml"
         volumeMounts:
         - mountPath: /tmp
           name: initswagger
