@@ -25,7 +25,7 @@ spec:
           name: initswagger
       # 自動將資料庫所需匯入的表單匯入到資料庫
       initContainers:
-      - name: initializing-a-new-instance
+      - name: initializing-a-new-instance-${CICD_GIT_COMMIT}
         image: alpine/git
         command: ['sh', '-c', 'git clone --branch ${git_branch} http://root:${git_token}@${git_host}/root/${git_repo}.git ; ls; mv -v ${git_repo}/restful/* /init-data/; cd /init-data; ls; chmod -R 777 /init-data']
         env:
