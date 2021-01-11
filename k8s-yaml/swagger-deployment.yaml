@@ -22,7 +22,7 @@ spec:
         - containerPort: 8080
         env:
         - name: SWAGGER_FILE
-          value: "/tmp/rancher-service-swagger.yml"
+          value: "/tmp/openapi.yml"
         volumeMounts:
         - mountPath: /tmp
           name: initswagger
