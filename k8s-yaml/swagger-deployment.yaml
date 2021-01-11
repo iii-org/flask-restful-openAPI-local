@@ -44,8 +44,8 @@ spec:
               name: gitlab-token
               key: git-clone
         volumeMounts:
-        - mountPath: /init-data
-          name: initswagger
+          - mountPath: /init-data
+            name: initswagger
       volumes:
       - name: initswagger
         emptyDir: {}
