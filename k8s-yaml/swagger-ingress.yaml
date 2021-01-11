@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-swagger-ing
+spec:
+#
+  rules:
+  - host: "swagger.${CICD_GIT_REPO_NAME}.${CICD_GIT_BRANCH}.10.20.0.74.xip.io"
+    http:
+      paths:
+      - backend:
+          serviceName: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-swagger-svc
+          servicePort: 8080
+        path: "/"
+        pathType: "ImplementationSpecific"

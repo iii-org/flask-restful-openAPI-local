@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-ing
+spec:
+#
+  rules:
+  - host: "${CICD_GIT_REPO_NAME}.${CICD_GIT_BRANCH}.10.20.0.74.xip.io"
+    http:
+      paths:
+      - backend:
+          serviceName: ${CICD_GIT_REPO_NAME}-${CICD_GIT_BRANCH}-svc
+          servicePort: 80
+        path: "/"
+        pathType: "ImplementationSpecific"
