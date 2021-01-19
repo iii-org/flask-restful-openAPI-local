@@ -1,5 +1,8 @@
 # rancher-devops-service
 
+Docker的來源MIRROR位置從`Docker Hub`轉換成`google`
+Build的鏡像上傳local的harbor registry
+
 #### 檔案說明
 * `stander-rancher-pipeline.yaml`: rancher專用pipeline樣板
 * `rancher-pipeline-example.ipynb`: 開發者教學說明檔案
