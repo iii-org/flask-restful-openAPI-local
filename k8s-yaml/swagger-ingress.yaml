@@ -6,7 +6,7 @@ metadata:
 spec:
 #
   rules:
-  - host: "swagger.${CICD_GIT_REPO_NAME}.${CICD_GIT_BRANCH}.10.20.0.74.xip.io"
+  - host: "swagger.${CICD_GIT_REPO_NAME}.${CICD_GIT_BRANCH}.172.16.0.171.xip.io"
     http:
       paths:
       - backend:
